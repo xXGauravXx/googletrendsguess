@@ -1,0 +1,27 @@
+# Cloudflare Pages Configuration
+name = "googletrendsguess"
+
+# Build Configuration
+[build]
+command = "npm install && npm run build"
+
+[build.environment]
+NODE_VERSION = "20"
+
+# Build output directory
+[site]
+bucket = "client/dist"
+
+# Environment variables
+[env.production]
+VITE_API_URL = "https://api.googletrendsguess.com"
+VITE_ENVIRONMENT = "production"
+
+[env.development]
+VITE_API_URL = "https://dev-api.googletrendsguess.com"
+VITE_ENVIRONMENT = "development"
+
+# Routes configuration
+[[routes]]
+pattern = "/*"
+handler = "index.html" 
